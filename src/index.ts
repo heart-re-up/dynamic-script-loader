@@ -1,5 +1,5 @@
-export function loadScript(url: string): Promise<HTMLScriptElement> {
-    return new Promise(resolve => {
+export function loadScript(url: string, async: boolean = true): Promise<HTMLScriptElement> {
+    return new Promise((resolve, reject) => {
         let id = 0;
 
         for (let i = 0; i < url.length; i++) {
@@ -14,10 +14,13 @@ export function loadScript(url: string): Promise<HTMLScriptElement> {
         }
 
         const el = document.createElement("script");
-        el.src = url;
-        el.id = String(id);
+        el.setAttribute('id', String(id))
+        el.setAttribute('src', url)
+        el.setAttribute('type', 'text/javascript')
+        el.setAttribute('async', String(async))
+        el.addEventListener('load', () => resolve(el))
+        el.addEventListener('error', (ev) => reject(ev))
         document.body.append(el);
         resolve(el)
-
     });
 };
