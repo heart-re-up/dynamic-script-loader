@@ -1,0 +1,46 @@
+{
+  "name": "@heartreup/script-loader",
+  "version": "0.0.1",
+  "description": "A async javascript loader",
+  "main": "dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.js"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heart-re-up/dynamic-script-loader.git"
+  },
+  "author": "heart.re.up <chilly.soda@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "type": "module",
+  "devDependencies": {
+    "esbuild": "^0.19.2",
+    "typescript": "^5.2.2"
+  },
+  "scripts": {
+    "prepack": "yarn build",
+    "build": "yarn clean && yarn build:tsc && yarn build:js",
+    "build:tsc": "yarn tsc",
+    "build:js": "node build.js",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "javascript",
+    "loader",
+    "HTMLScriptElement"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "homepage": "https://github.com/heart-re-up/dynamic-script-loader#readme",
+  "bugs": {
+    "url": "https://github.com/heart-re-up/dynamic-script-loader/issues"
+  },
+  "types": "./dist/index.d.ts"
+}
