@@ -21,6 +21,5 @@ export function loadScript(url: string, async: boolean = true): Promise<HTMLScri
         el.addEventListener('load', () => resolve(el))
         el.addEventListener('error', (ev) => reject(ev))
         document.body.append(el);
-        resolve(el)
     });
 };
