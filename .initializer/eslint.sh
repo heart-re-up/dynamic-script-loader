@@ -13,7 +13,7 @@ DATE=$(date +%Y%m%d-%H%M%S)
 # 먼저 의존성 모듈을 설치합니다.
 # ##################################################
 echo "(step2) Install $PACKAGES..."
-echo "pnpm add -D $$PACKAGES"
+echo "pnpm add -D $PACKAGES"
 pnpm add -D $PACKAGES
 
 ##################################################
